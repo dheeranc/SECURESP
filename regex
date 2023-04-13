@@ -1,0 +1,13 @@
+
+import re
+
+postcode_regex = r'^[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][A-Za-z]{2}$'
+
+# test examples
+test_postcodes = ["M1 1AA", "M60 1NW", "CR2 6XH", "DN55 1PT", "W1A 1HQ", "EC1A 1BB"]
+
+for postcode in test_postcodes:
+    if re.match(postcode_regex, postcode):
+        print(f"{postcode} is a valid UK postcode")
+    else:
+        print(f"{postcode} is not a valid UK postcode")
