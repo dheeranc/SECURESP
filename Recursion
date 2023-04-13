@@ -1,0 +1,15 @@
+
+def towers_of_hanoi(n, from_peg, to_peg, temp_peg):
+    if n == 1:
+        print("Move disk 1 from peg", from_peg, "to peg", to_peg)
+        return 1
+    else:
+        moves = towers_of_hanoi(n-1, from_peg, temp_peg, to_peg)
+        print("Move disk", n, "from peg", from_peg, "to peg", to_peg)
+        moves += 1
+        moves += towers_of_hanoi(n-1, temp_peg, to_peg, from_peg)
+        return moves
+
+n = int(input("Enter the number of disks: "))
+moves = towers_of_hanoi(n, 'A', 'C', 'B')
+print("Number of moves executed:", moves)
